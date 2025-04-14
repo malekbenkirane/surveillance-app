@@ -1,0 +1,18 @@
+﻿services:
+  - type: web
+    name: surveillance-app
+    env: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: python backend/app.py
+    
+    envVars:
+      - key: SMTP_SERVER
+        value: smtp.office365.com
+      - key: SMTP_PORT
+        value: 587
+      - key: SENDER_EMAIL
+        value: regence.informatique@liquidationtravail.com
+      - key: SENDER_PASSWORD
+        value: Saouda2025!!
+      - key: ALERT_RECEIVER
+        value: abdelmalek.benkirane@regence.ca
