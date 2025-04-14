@@ -1,8 +1,8 @@
 import logging
 from flask import Flask, jsonify
 
-# Importation relative de monitor
-from monitor import check_server_status
+# Import depuis le même dossier : backend.monitor
+from backend.monitor import check_server_status
 
 # Configurer les logs
 logging.basicConfig(level=logging.DEBUG)
