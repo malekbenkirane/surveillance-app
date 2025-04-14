@@ -3,8 +3,8 @@
     name: surveillance-app
     env: python
     buildCommand: pip install -r backend/requirements.txt
-    startCommand: python backend/app.py
-    
+    startCommand: gunicorn backend.app:app
+
     envVars:
       - key: SMTP_SERVER
         value: smtp.office365.com

@@ -7,3 +7,5 @@ click
 blinker
 Werkzeug
 Jinja2
+schedule
+requests

@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
-from monitor import check_server_status
-from mailer import send_alert
+from backend.monitor import check_server_status
+from backend.mailer import send_alert
 
 import os
 
@@ -17,3 +17,4 @@ def check_status():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
