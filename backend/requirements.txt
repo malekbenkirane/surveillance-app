@@ -1,2 +1,9 @@
-﻿Flask
+Flask
+gunicorn
 ping3
+MarkupSafe
+itsdangerous
+click
+blinker
+Werkzeug
+Jinja2
