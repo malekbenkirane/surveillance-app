@@ -1,11 +1,8 @@
-import ping3
+import socket
 import json
 import os
 
-# Obtenir le chemin absolu du fichier JSON
 file_path = os.path.join(os.path.dirname(__file__), 'server_list.json')
-
-# Charger la liste des serveurs avec gestion d'erreur
 try:
     with open(file_path, 'r') as f:
         servers = json.load(f)
@@ -13,12 +10,12 @@ except FileNotFoundError:
     print(f"Fichier {file_path} introuvable.")
     servers = {}
 
-def check_server_status():
+def check_server_status(port=80, timeout=2):
     server_status = {}
     for server_name, ip in servers.items():
         try:
-            status = ping3.ping(ip, timeout=1)
-            server_status[server_name] = "Up" if status else "Down"
+            with socket.create_connection((ip, port), timeout=timeout):
+                server_status[server_name] = "Up"
         except Exception as e:
-            server_status[server_name] = f"Error: {e}"
+            server_status[server_name] = f"Down ({e})"
     return server_status
