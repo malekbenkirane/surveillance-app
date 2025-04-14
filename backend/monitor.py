@@ -2,7 +2,11 @@ import ping3
 import json
 
 # Charger la liste des serveurs depuis le fichier JSON
-with open('server_list.json', 'r') as f:
+import os
+
+file_path = os.path.join(os.path.dirname(__file__), 'server_list.json')
+with open(file_path, 'r') as f:
+
     servers = json.load(f)
 
 def check_server_status():
